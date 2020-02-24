@@ -4,6 +4,10 @@ let imageCar1
 let imageCar2
 let imageCar3
 
+let xCar = 600
+
+let yActor = 368
+
 function preload() {
     backgroundRoad = loadImage('assets/estrada.png')
     imageActor = loadImage('assets/ator-1.png')
@@ -18,8 +22,29 @@ function setup() {
 
 function draw() {
     background(backgroundRoad)
-    image(imageActor, 100, 368, 26, 26)
-    image(imageCar1, 420, 40, 50, 40)
-    image(imageCar2, 420, 150, 50, 40)
-    image(imageCar3, 420, 264, 50, 40)
+    showActor()
+    showCar()
+    moveCar()
+    moveActor()
+}
+
+function showActor() {
+    image(imageActor, 100, yActor, 26, 26)
+}
+
+function showCar() {
+    image(imageCar1, xCar, 40, 50, 40)
+}
+
+function moveCar() {
+    xCar -= 2
+}
+
+function moveActor() {
+    if (keyIsDown(UP_ARROW)) {
+        yActor -= 2
+    }
+    if (keyIsDown(DOWN_ARROW)) {
+        yActor += 2
+    }
 }
